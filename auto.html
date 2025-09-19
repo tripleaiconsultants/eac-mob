@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ασφάλεια Αυτοκινήτου Κύπρου | E.A.C Insurance | Εξοικονομήστε 25-40%</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0d0929;
+            color: #f5f5f5;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header - Mobile Optimized */
+        header {
+            background-color: #08061b;
+            padding: 10px 15px 5px 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            border-bottom: 2px solid #C19A6B;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(193, 154, 107, 0.1);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .logo-container img {
+            height: 35px;
+            width: auto;
+        }
+
+        .slogan {
+            font-size: 14px;
+            font-weight: 700;
+            text-align: right;
+            max-width: 200px;
+            line-height: 1.2;
+        }
+
+        .slogan-part1 {
+            color: #C19A6B;
+        }
+
+        .slogan-part2 {
+            color: white;
+        }
+
+        nav {
+            margin-top: 5px;
+            width: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: space-between;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            min-width: 90px;
+        }
+
+        nav li:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background-color: rgba(193, 154, 107, 0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 6px 3px;
+            display: block;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 11px;
+            letter-spacing: 0.3px;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            background: linear-gradient(to right, transparent, rgba(87, 65, 48, 0.4), transparent);
+            color: #fff;
+        }
+
+        nav a:hover::before, nav a.active::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 2px;
+            background: #C19A6B;
+            border-radius: 2px 2px 0 0;
+        }
+
+        /* Section 1 - Individual Case Approach - Mobile Optimized */
+        .health-highlight-box {
+            background: #0d0929;
+            padding: 20px 15px 60px 15px;
+            color: white;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+
+        .health-box-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            max-width: 100%;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1a1449 0%, #241b5c 100%);
+            padding: 30px 20px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+            text-align: center;
+
+            /* Animation setup */
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .health-box-inner.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .health-box-image {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .health-box-image img {
+            width: 100%;
+            height: auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .health-box-text {
+            width: 100%;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .health-box-text h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #C19A6B;
+        }
+
+        /* Section 2 - Background Matching - Mobile Optimized */
+        .health-info-paragraph {
+            background: #08061b;
+            padding: 40px 15px;
+            color: #ddd;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .health-info-inner {
+            max-width: 100%;
+            margin: 0 auto;
+            font-size: 15px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .health-info-inner h2 {
+            color: #C19A6B;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* Section 3 - Corner Box Style - Mobile Optimized */
+        .health-ceo-section {
+            max-width: 100%;
+            margin: 50px auto;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .health-ceo-box {
+            position: relative;
+            padding: 20px;
+        }
+
+        /* Corner lines - smaller for mobile */
+        .health-ceo-box::before,
+        .health-ceo-box::after,
+        .health-ceo-box div::before,
+        .health-ceo-box div::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #C19A6B;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .health-ceo-box::before {
+            top: 0;
+            left: 0;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .health-ceo-box::after {
+            top: 0;
+            right: 0;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .health-ceo-box div::before {
+            bottom: 0;
+            left: 0;
+            border-right: none;
+            border-top: none;
+        }
+
+        .health-ceo-box div::after {
+            bottom: 0;
+            right: 0;
+            border-left: none;
+            border-top: none;
+        }
+
+        .health-ceo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .health-ceo-image {
+            width: 100%;
+            max-width: 250px;
+        }
+
+        .health-ceo-image img {
+            width: 100%;
+            height: auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .health-ceo-text {
+            width: 100%;
+            color: #fff;
+        }
+
+        .health-ceo-text h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #e0c9a7;
+            text-shadow: 
+                0 0 2px rgba(224,201,167,0.6),
+                0 0 6px rgba(224,201,167,0.4);
+        }
+
+        .health-ceo-text p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #fff;
+            text-shadow: 0 0 6px rgba(255,255,255,0.2);
+        }
+
+        /* Footer - Mobile Optimized */
+        footer {
+            position: relative;
+            width: 100%;
+            background-color: #08061b;
+            padding: 30px 0 20px;
+            text-align: center;
+            margin-top: 0;
+            border-top: 2px solid #C19A6B;
+            box-shadow: 0 -8px 20px rgba(0,0,0,0.6);
+        }
+
+        .footer-content {
+            max-width: 100%;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 35px;
+            width: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #c9c9c9;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .footer-links a:hover {
+            color: #C19A6B;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background: #C19A6B;
+            transform: translateY(-2px);
+        }
+
+        .footer-content > div[style] {
+            text-align: center;
+            margin: 15px 0;
+            color: #c9c9c9;
+            font-size: 14px;
+        }
+
+        .footer-content > div[style] p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .copyright {
+            color: #777;
+            margin-top: 20px;
+            font-size: 13px;
+        }
+
+        /* Newsletter Popup - Mobile Optimized */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 9, 41, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .popup-wrapper {
+            position: relative;
+            overflow: visible;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .popup-wrapper::before,
+        .popup-wrapper::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 3px solid #C19A6B;
+            pointer-events: none;
+            opacity: 0;
+            transform: scale(0.6);
+            z-index: 10;
+        }
+
+        .popup-wrapper::before {
+            top: -15px;
+            left: -15px;
+            border-right: none;
+            border-bottom: none;
+            transform-origin: top left;
+        }
+
+        .popup-wrapper::after {
+            bottom: -15px;
+            right: -15px;
+            border-left: none;
+            border-top: none;
+            transform-origin: bottom right;
+        }
+
+        @keyframes cornerIn {
+            0%   { opacity: 0; transform: scale(0.3); }
+            70%  { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .popup-overlay.active .popup-wrapper::before,
+        .popup-overlay.active .popup-wrapper::after {
+            animation: cornerIn 0.9s cubic-bezier(.2,.9,.2,1) forwards;
+            animation-delay: 0.3s;
+        }
+
+        .popup {
+            background: linear-gradient(135deg, #1a1449 0%, #241b5c 100%);
+            padding: 25px 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            transform: scale(0.7);
+            transition: transform 0.4s ease;
+            color: #fff;
+            position: relative;
+        }
+
+        .popup h2 {
+            margin-bottom: 12px;
+            font-size: 18px;
+            color: #f5f5f5;
+        }
+
+        .popup p {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .popup input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(87, 65, 48, 0.5);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            background: #0d0929;
+            color: #fff;
+            box-sizing: border-box;
+        }
+
+        .popup input::placeholder {
+            color: #aaa;
+        }
+
+        .popup-btn {
+            background: #C19A6B;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+
+        .popup-btn:hover {
+            background: #6b4d36;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 22px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #888;
+            transition: color 0.3s;
+            z-index: 11;
+        }
+
+        .popup-close:hover {
+            color: #fff;
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-overlay.active .popup {
+            transform: scale(1);
+        }
+
+        /* Mobile-specific breakpoints */
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+            
+            .slogan {
+                font-size: 13px;
+                text-align: center;
+                max-width: 100%;
+            }
+            
+            nav ul {
+                gap: 2px;
+            }
+            
+            nav li {
+                min-width: 85px;
+            }
+            
+            nav a {
+                font-size: 10px;
+                padding: 5px 2px;
+            }
+            
+            .health-box-inner {
+                padding: 25px 15px;
+            }
+            
+            .health-box-text h2 {
+                font-size: 20px;
+            }
+            
+            .health-box-text {
+                font-size: 14px;
+            }
+            
+            .health-info-inner h2 {
+                font-size: 18px;
+            }
+            
+            .health-info-inner {
+                font-size: 14px;
+            }
+            
+            .health-ceo-text h2 {
+                font-size: 20px;
+            }
+            
+            .health-ceo-text p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 8px 10px 5px 10px;
+            }
+            
+            .slogan {
+                font-size: 12px;
+            }
+            
+            nav a {
+                font-size: 9px;
+                padding: 4px 1px;
+            }
+            
+            nav li {
+                min-width: 75px;
+            }
+            
+            .health-highlight-box {
+                padding: 15px 10px 40px 10px;
+                margin-top: 20px;
+            }
+            
+            .health-box-inner {
+                padding: 20px 12px;
+                gap: 20px;
+            }
+            
+            .health-box-text h2 {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+            
+            .health-box-text {
+                font-size: 13px;
+            }
+            
+            .health-info-paragraph {
+                padding: 30px 10px;
+            }
+            
+            .health-info-inner h2 {
+                font-size: 17px;
+                margin-bottom: 12px;
+            }
+            
+            .health-info-inner {
+                font-size: 13px;
+            }
+            
+            .health-ceo-section {
+                margin: 30px auto;
+            }
+            
+            .health-ceo-box {
+                padding: 15px;
+            }
+            
+            .health-ceo-container {
+                gap: 15px;
+            }
+            
+            .health-ceo-text h2 {
+                font-size: 18px;
+                margin-bottom: 12px;
+            }
+            
+            .health-ceo-text p {
+                font-size: 13px;
+            }
+            
+            .popup {
+                padding: 20px 25px;
+            }
+            
+            .popup h2 {
+                font-size: 16px;
+            }
+            
+            .popup p {
+                font-size: 13px;
+            }
+            
+            .popup input {
+                padding: 8px;
+                font-size: 13px;
+            }
+            
+            .popup-btn {
+                padding: 8px 15px;
+                font-size: 13px;
+            }
+            
+            .footer-links a {
+                font-size: 13px;
+            }
+            
+            .footer-content > div[style] p {
+                font-size: 13px;
+            }
+            
+            .social-icons a {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .health-box-inner {
+                flex-direction: row;
+                text-align: left;
+                padding: 20px 15px;
+            }
+            
+            .health-box-image {
+                max-width: 200px;
+            }
+            
+            .health-ceo-container {
+                flex-direction: row;
+                text-align: left;
+                gap: 20px;
+            }
+            
+            .health-ceo-image {
+                max-width: 180px;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            nav a:hover,
+            .footer-links a:hover,
+            .social-icons a:hover {
+                transform: none;
+            }
+        }
+
+        /* High DPI display optimization */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .logo-container img,
+            .health-box-image img,
+            .health-ceo-image img,
+            .footer-logo img {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Sticky Navigation -->
+    <header>
+        <div class="top-bar">
+            <div class="logo-container">
+                <a href="main.html">
+                    <img src="assets/logoCamelv2.png" alt="E.A.C Insurance Agencies & Consultants logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                </a>
+            </div>
+            <div class="slogan">
+                <span class="slogan-part1">Διαφορετικοί γιατί</span><br>
+                <span class="slogan-part2">νοιαζόμαστε</span>
+            </div>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="main.html"><i class="fas fa-home"></i> Αρχική</a></li>
+                <li><a href="auto.html" class="active"><i class="fas fa-car"></i> Αυτοκίνητο</a></li>
+                <li><a href="health.html"><i class="fas fa-heartbeat"></i> Υγεία</a></li>
+                <li><a href="life.html"><i class="fas fa-house-user"></i> Κατοικία</a></li>
+                <li><a href="business.html"><i class="fas fa-briefcase"></i> Επιχείρηση</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Επικοινωνία</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section 1 - Individual Case Approach with Image -->
+    <section class="health-highlight-box">
+        <div class="health-box-inner float-up">
+            <div class="health-box-image">
+                <img src="assets/auto-prime.webp" 
+                     alt="Εξατομικευμένη Ασφάλεια Αυτοκινήτου" 
+                     onerror="this.src='https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80'">
+            </div>
+            <div class="health-box-text">
+                <h2>Ασφάλεια Αυτοκινήτου που Σας Προστατεύει Πραγματικά</h2>
+                <p>
+                    Στην E.A.C διαλέγουμε μαζί excess και όρους, ώστε να πληρώνετε για κάλυψη — όχι για υποσχέσεις. Το αυτοκίνητό σας δεν είναι τυπική περίπτωση, γι' αυτό η ασφάλειά σας δεν πρέπει να είναι τυπική λύση.<br><br>
+                    
+                    Εξετάζουμε τον τρόπο οδήγησής σας, την αξία του οχήματός σας, την περιοχή που κυκλοφορείτε και τον προϋπολογισμό σας για να χτίσουμε κάλυψη που λειτουργεί όταν την χρειάζεστε.<br><br>
+                    
+                    Εξοικονόμηση 25-40% με προσαρμοσμένα excess και εκπτώσεις βάσει χιλιομέτρων. 24/7 οδική βοήθεια σε όλη την Κύπρο και ΕΕ. Aντικατάσταση οχήματος σε περίπτωση ατυχήματος. Claims που επεξεργάζονται σε 24-48 ώρες. Άμεση επικοινωνία με εμάς - όχι call centers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2 - Our Expertise in Car Insurance -->
+    <section class="health-info-paragraph">
+        <div class="health-info-inner">
+            <h2>Γνωρίζουμε την Κυπριακή Ασφαλιστική Αγορά Αυτοκινήτου</h2>
+            <p>
+                Η ασφάλεια αυτοκινήτου στην Κύπρο έχει γίνει πιο περίπλοκη με νέους κανονισμούς, διαφορετικές καλύψεις και συνεχώς μεταβαλλόμενες τιμές. Ποια εταιρεία προσφέρει την καλύτερη τιμή για το προφίλ σας; Τι καλύψεις χρειάζεστε πραγματικά;<br><br>
+                
+                Με πάνω από 15 χρόνια εμπειρίας στην κυπριακή ασφαλιστική αγορά, γνωρίζουμε ακριβώς ποιες ασφαλιστικές έχουν τη γρηγορότερη διεκπεραίωση claims στην Κύπρο, ποιες προσφέρουν τις καλύτερες εκπτώσεις για νέους οδηγούς ή οικογένειες, ποια συνεργεία επισκευής δέχονται κάθε ασφαλιστική χωρίς προβλήματα, και πώς να αποφύγετε κρυφές χρεώσεις και περιορισμούς που μπορεί να σας κοστίσουν.<br><br>
+                
+                Δεν απλώς σας πουλάμε ασφάλεια - σας καθοδηγούμε για να πάρετε τη μέγιστη προστασία στην καλύτερη τιμή. Αυτή είναι η διαφορά του να συνεργάζεστε με έμπειρο broker αντί για online σύγκριση τιμών.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 3 - CEO Message with Corner Box Style -->
+    <section class="health-ceo-section">
+        <div class="health-ceo-box">
+            <div></div> <!-- Needed for the ::after pseudo-elements -->
+            <div class="health-ceo-container">
+                <div class="health-ceo-image">
+                    <img src="assets/andros-prime.webp" alt="Άνδρος - E.A.C Insurance Agencies & Consultants" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'">
+                </div>
+                <div class="health-ceo-text">
+                    <h2>Γιατί η Ασφάλεια Αυτοκινήτου Είναι Περισσότερο από Υποχρέωση</h2>
+                    <p>
+                        "Η ασφάλεια αυτοκινήτου δεν είναι απλά νομική υποχρέωση - είναι προστασία για εσάς, την οικογένειά σας και την οικονομική σας ασφάλεια. Ένα ατύχημα μπορεί να αλλάξει τη ζωή σας σε δευτερόλεπτα.<br><br>
+                        
+                        Έχω δει πολλούς πελάτες που επέλεγαν την πιο φτηνή ασφάλεια μόνο και μόνο για να συμμορφωθούν με το νόμο, μέχρι που είχαν ατύχημα και ανακάλυψαν ότι δεν είχαν επαρκή κάλυψη. Έχω δει και άλλους που πλήρωναν υπερβολικά για καλύψεις που δεν χρειάζονταν.<br><br>
+                        
+                        Ο στόχος μου είναι απλός: να βρούμε μαζί τη σωστή ισορροπία. Κάλυψη που σας προστατεύει πλήρως όταν την χρειάζεστε, σε τιμή που δεν επιβαρύνει υπερβολικά τον προϋπολογισμό σας, με εταιρεία που θα σταθεί δίπλα σας σε δύσκολες στιγμές."<br><br>
+                        
+                        Η δέσμευσή μας για την ασφάλεια αυτοκινήτου: Πλήρης διαφάνεια για τις καλύψεις και τους περιορισμούς. Προσωπική υποστήριξη σε κάθε claim - χειρίζομαι τη γραφειοκρατία. Ετήσια επανεξέταση για να μείνετε ανταγωνιστικοί. Άμεση επικοινωνία με εμάς στο +357 96660113 - όχι αναμονή στο τηλέφωνο.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/logoCamelv2.png" alt="E.A.C - Insurance Broker logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            </div>
+            
+            <div class="footer-links">
+                <a href="#">Σχετικά με την E.A.C</a>
+                <a href="contact.html">Επικοινωνία</a>
+                <a href="#">Πολιτική Απορρήτου</a>
+                <a href="#">Συχνές Ερωτήσεις</a>
+            </div>
+            
+            <div class="social-icons">
+                <a href="https://www.facebook.com/eacinsurance/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/andros.eacinsurance/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/andros-panayiotou-a6392483?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.link/r895s2"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+            <div style="text-align: center; margin: 20px 0; color: #c9c9c9; text-decoration: none; transition: color 0.3s ease; font-size: 16px;">
+                <p><strong>Τηλ:</strong> +357 96660113</p>
+                <p><strong>Γραφείο:</strong> Λεμεσός | <strong>Εξυπηρέτηση:</strong> Όλη η Κύπρος</p>
+                <p><strong>Ώρες:</strong> Δευτ-Παρ 8ΠΜ-6ΜΜ | <strong>Επείγοντα:</strong> 24/7</p>
+            </div>
+            
+            <p class="copyright">© 2025 TripleAI Consultants. Με την επιφύλαξη παντός δικαιώματος.</p>
+        </div>
+    </footer>
+
+    <!-- Newsletter Popup -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-wrapper">
+            <div class="popup" id="popupBox">
+                <button class="popup-close" id="popupClose">&times;</button>
+                <h2>Δωρεάν Ανάλυση Ασφάλειας Αυτοκινήτου</h2>
+                <p>Μάθετε αν πληρώνετε παραπάνω για την ασφάλεια του αυτοκινήτου σας ή έχετε ελλιπή κάλυψη. Κλείστε 15-λεπτη συνάντηση με τον Άνδρο στο +357 96660113.</p>
+                <input type="email" placeholder="Το email σας">
+                <input type="tel" placeholder="Το τηλέφωνό σας">
+                <button class="popup-btn" onclick="window.location.href='tel:+35796660113'">Κλείστε Ραντεβού Τώρα</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Newsletter Popup
+        const popupOverlay = document.getElementById('popupOverlay');
+        const popupClose = document.getElementById('popupClose');
+
+        function showPopup() {
+            popupOverlay.classList.add('active');
+        }
+
+        function hidePopup() {
+            popupOverlay.classList.remove('active');
+        }
+
+        // Close popup when clicking the close button
+        popupClose.addEventListener('click', hidePopup);
+
+        // Close popup when clicking outside of it
+        popupOverlay.addEventListener('click', function(e) {
+            if (e.target === popupOverlay) {
+                hidePopup();
+            }
+        });
+
+        // Auto-show popup after 3 seconds
+        setTimeout(showPopup, 3000);
+
+        // Float-up animation trigger
+        document.addEventListener("DOMContentLoaded", function() {
+            const floatBoxes = document.querySelectorAll('.float-up');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // trigger only once
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            floatBoxes.forEach(box => {
+                observer.observe(box);
+            });
+        });
+    </script>
+</body>
+</html>
